@@ -11,7 +11,7 @@ function treeFn(src){
         let doesExist = fs.existsSync(src);
         if (doesExist) {
             // console.log("source path is exist");
-            treeHelper(src);
+            treeHelper(src,"");
 
         }else{
             console.log("Kindly enter the correct path");
@@ -22,21 +22,23 @@ function treeFn(src){
 
     return;
 }
-function treeHelper(dirPath ){
+
+function treeHelper(dirPath ,indent){
+    // is file or folder 
+    
+   let isFile= fs.lstatSync(dirPath).isFile();
+   if (isFile == true) {
+    let fileName = path.basename(dirPath);
+    console.log(indent + "├──" + fileName);
+} else {
     let dirName = path.basename(dirPath)
-    console.log( "└──> " + dirName);
+    console.log(indent + "└──" + dirName);
     let childrens = fs.readdirSync(dirPath);
     for (let i = 0; i < childrens.length; i++) {
         let childPath = path.join(dirPath, childrens[i]);
-        let isFile= fs.lstatSync(childPath).isFile();
-      if (isFile == true) {
-        let fileName = path.basename(childPath);
-        console.log( "   ├── " + fileName);
-        } else{
-            let folderName = path.basename(childPath);
-            console.log("   └──> " + folderName);
-        }
+        treeHelper(childPath, indent + "\t");
     }
+}
 }
 
 
