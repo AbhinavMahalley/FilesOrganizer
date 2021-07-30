@@ -16,6 +16,7 @@ function organizeFn(src){
      let destPath;
      if (src == undefined) {
          destPath = process.cwd();
+         organizeFn(destPath);
          return;
      }else{
          let doesExist = fs.existsSync(src);

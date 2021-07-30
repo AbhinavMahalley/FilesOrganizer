@@ -6,6 +6,7 @@ function treeFn(src){
     // console.log("tree command exicuted with path "+src );
     if (src == undefined) {
         destPath = process.cwd();
+         treeFn(destPath);
         return;
     }else{
         let doesExist = fs.existsSync(src);
