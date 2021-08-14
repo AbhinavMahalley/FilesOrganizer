@@ -14,7 +14,6 @@
 - [ ] 1- node main.js  organize "directory path" => organize files according to their category in categoryname folder.
 - [ ] 2- node main.js  tree "directory path" => displays content of directory in tree structure.
 - [ ] 3- node main.js  help => help command use to displays all types of command for help to user to uderstand about different commands.
-- [ ] 4- node wcat.js -n filepath => give numbering to all the lines 
 
 ## Edge cases:
 - [ ] 1- If user dosent provide directory path it automatically use address of current working directy from where with help of Command Prompt or Terminal the command run.
